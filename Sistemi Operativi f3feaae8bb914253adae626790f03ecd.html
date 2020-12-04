@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Sistemi Operativi</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f3feaae8-bb91-4253-adae-626790f03ecd" class="page sans"><header><img class="page-cover-image" src="https://blog.informaticalab.com/wp-content/uploads/2013/10/win_mac_linux.png" style="object-position:center 33.13%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">💻</span></div><h1 class="page-title">Sistemi Operativi</h1></header><div class="page-body"><p id="d86a6cdb-0e2a-4c5a-b0fd-59c1b6bbdd01" class="">Questa è una lista delle lezioni e di tutto il materiale utile per lo studio della materia &quot;Sistemi Operativi&quot;.</p><hr id="a3b2e76c-28c2-4530-b83d-2f4d0922cd49"/><p id="754631a2-0b1e-4166-956b-132fdafe20ac" class=""><strong>Prof:</strong> Igor Melatti - melatti@di.uniroma1.it - http://151.100.17.236/~melatti/so1_domande/orali.html</p><figure id="40a1f3ce-d790-4e45-b4c4-ce42b3f24644"><a href="https://twiki.di.uniroma1.it/twiki/view/SO/SO1213AL/SistemiOperativi12CFUModulo1Canale120202021" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">SistemiOperativi12CFUModulo1Canale120202021 &lt; SO/SO1213AL &lt; TWiki</div><div class="bookmark-description">melatti@di.uniroma1.it Si rammenta di iscriversi su Infostud selezionando, per l&#x27;appello desiderato, il verbale il cui numero è indicato nella penultima colonna, entro la data indicata nell&#x27;ultima. Vedere il sillabo W. Stallings, &quot;Operating Systems, Internals and Design Principles&quot;, 9th ed., Prentice-Hall, 2009. Questo link contiene informazioni sul libro.</div></div><div class="bookmark-href"><img src="https://twiki.di.uniroma1.it/pub/Main/TWikiPreferences/favicon.ico" class="icon bookmark-icon"/>https://twiki.di.uniroma1.it/twiki/view/SO/SO1213AL/SistemiOperativi12CFUModulo1Canale120202021</div></div><img src="https://twiki.di.uniroma1.it/pub/Main/TWikiPreferences/pace.jpg" class="bookmark-image"/></a></figure><hr id="23efe446-f023-484e-bfa1-be132cc452e2"/><p id="0be5ffc7-ce6c-457e-91c3-45163b48570d" class=""><strong>Link al corso su elearning</strong>:</p><hr id="d50b2df9-0b9e-4f3b-a9d7-02da338d4d1f"/><h2 id="661f2045-6448-4825-8d3b-71cfc7f87a58" class="">Lista lezioni:</h2><figure id="aee66028-74e0-426a-8a3a-74f5fa2d1d81" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#1%20Cosa%20viene%20insegnato%20in%20SO%20-%20@Oct%205,%202020%20aee6602874e0426a8a3a74f5fa2d1d81.html"><span class="icon">🔤</span>#1. Cosa viene insegnato in SO? - @Oct 5, 2020</a></figure><figure id="b606a243-f88d-4c25-baff-476b9bf68521" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#2%20I%20O%20Programmato%20-%20@Oct%207,%202020%20b606a243f88d4c25baff476b9bf68521.html"><span class="icon">🖱️</span>#2. I/O Programmato - @Oct 7, 2020</a></figure><figure id="120ee261-179d-4dc7-896a-f699c9e2dfed" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#3%20Struttura%20di%20un%20S%20O%20-%20I%20processi%20@Oct%2012,%202020%20120ee261179d4dc7896af699c9e2dfed.html">#3. Struttura di un S.O. - I processi @Oct 12, 2020</a></figure><figure id="610b6668-2b08-4df3-b829-81b15307d992" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#4%20Kernel%20-%20@Oct%2014,%202020%20610b66682b084df3b82981b15307d992.html"><span class="icon">🐧</span>#4. Kernel - @Oct 14, 2020</a></figure><figure id="075b31b3-80de-42b0-b772-b1dcc13010a8" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#5%20Thread%20-%20Scheduling%20@Oct%2019,%202020%20075b31b380de42b0b772b1dcc13010a8.html"><span class="icon">🧵</span>#5. Thread - Scheduling @Oct 19, 2020</a></figure><figure id="87602178-3d83-4fb9-9311-e8496afc6a23" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#6%20Algoritmi%20di%20scheduling%20@Oct%2021,%202020%20876021783d834fb99311e8496afc6a23.html"><span class="icon">⬛</span> #6. Algoritmi di scheduling @Oct 21, 2020</a></figure><figure id="eba1eecd-4d3b-456b-b4c8-4c37c097c4d7" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#7%20Scheduling%20in%20Linux%20-%20Gestione%20della%20memoria%20-%20%20eba1eecd4d3b456bb4c84c37c097c4d7.html"><span class="icon">⏲️</span>#7. Scheduling in Linux - Gestione della memoria - Partizionamento @Oct 26, 2020</a></figure><figure id="a15432e2-b81f-4d59-912e-da22f6722f7b" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#8%20Memoria%20Virtuale%20e%20Paginazione%20@Oct%2028,%202020%20a15432e2b81f4d59912eda22f6722f7b.html"><span class="icon">💾</span>#8. Memoria Virtuale e Paginazione @Oct 28, 2020 </a></figure><figure id="e4c37a4c-b980-4095-a4a8-9f08ff2ac3ca" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#9%20Segmentazione%20-%20algoritmi%20di%20scheduling%20@Nov%202,%20e4c37a4cb9804095a4a89f08ff2ac3ca.html"><span class="icon">🏗️</span>#9. Segmentazione - algoritmi di scheduling @Nov 2, 2020</a></figure><figure id="48948113-b4a0-40b3-9eb0-6bfab7b4e79b" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#10%20Dispositivi%20I%20O%20-%20DMA%20@Nov%204,%202020%2048948113b4a040b39eb06bfab7b4e79b.html">#10. Dispositivi I/O - DMA @Nov 4, 2020  </a></figure><figure id="2f4a9640-cbf1-4969-8c43-eef7b1757292" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#11%20Dischi%20-%20@Nov%209,%202020%202f4a9640cbf149698c43eef7b1757292.html"><span class="icon">💾</span>#11. Dischi - @Nov 9, 2020 </a></figure><figure id="4e75d277-4619-412a-a857-92e174c40ca4" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#12%20Directory,%20gestione%20spazio%20libero%20-%20@Nov%2011,%202%204e75d2774619412aa85792e174c40ca4.html"><span class="icon">📂</span>#12. Directory, gestione spazio libero - @Nov 11, 2020 </a></figure><figure id="a0a109f3-16ae-4bf3-8f3a-a0ce47bb75a5" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#13%20Concorrenza%20@Nov%2016,%202020%20a0a109f316ae4bf38f3aa0ce47bb75a5.html"><span class="icon">👀</span>#13. Concorrenza @Nov 16, 2020  </a></figure><figure id="853abf35-3d0b-4cc8-a5ae-8464738d8128" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#14%20Sezione%20critica%20@Nov%2018,%202020%20853abf353d0b4cc8a5ae8464738d8128.html"><span class="icon">⚠️</span>#14. Sezione critica @Nov 18, 2020  </a></figure><figure id="f703220e-0499-40ff-b9d4-62f29093029c" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#15%20Semafori%20-%20@Nov%2023,%202020%20f703220e049940ffb9d462f29093029c.html"><span class="icon">🚦</span>#15. Semafori - @Nov 23, 2020 </a></figure><figure id="bfd07874-f5e2-4a6f-949f-85ac05779d0a" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#16%20Trastevere%20+%20Barbiere%20-%20Algoritmo%20di%20Dekker%20@N%20bfd07874f5e24a6f949f85ac05779d0a.html"><span class="icon">💈</span>#16. Trastevere + Barbiere - Algoritmo di Dekker @Nov 25, 2020 </a></figure><figure id="5f623d29-d955-492a-a38f-bfa607d42c84" class="link-to-page"><a href="Sistemi%20Operativi%20f3feaae8bb914253adae626790f03ecd/#17%20Altro%20modo%20di%20gestire%20i%20processi%20@Nov%2030,%202020%205f623d29d955492aa38fbfa607d42c84.html"><span class="icon">⚛️</span>#17. Altro modo di gestire i processi  @Nov 30, 2020 </a></figure><p id="14427327-7a27-4dfa-bea3-06a8b6f1d40f" class="">#18. Esempi e codicini python vari - <time>@Dec 2, 2020</time> </p><p id="c2ff83e9-2683-4a1f-a202-1340c38e4dce" class="">
+</p></div></article></body></html>
